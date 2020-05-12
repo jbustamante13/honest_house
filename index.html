@@ -44,7 +44,7 @@
             </ul>
         </div>
     </header>
-<!--JUMBOTORN START-->
+    <!--JUMBOTORN START-->
     <div class="jumbotron" data-aos="fade-down" data-aos-anchor=".container marketing">
         <div class="container">
             <h1 class="display-3">Welcome to Honest House</h1>
@@ -58,7 +58,7 @@
 
 
     <section class="title-container" style="margin-bottom:2rem;">
-        <h1> RESOURCES</h1>
+        <h1 id="trigger-stat1"> RESOURCES</h1>
     </section>
 
     <div class="container marketing">
@@ -124,42 +124,40 @@
         <!-- /END THE FEATURETTES -->
 
     </div><!-- /.container -->
+    <!---MAIN CONTAINER-->
 
-<!---MAIN CONTAINER-->
+    <section class="title-container" style="margin-bottom:2rem;">
+        <h1> DID YOU KNOW?</h1>
+    </section>
     <main class="hh-container">
-        <section class="card">
-            <img class="hh-graphic" src="https://live.staticflickr.com/2891/11123538363_07bb05134a_b.jpg" alt="" />
+        <section class="card"id="trigger-stat2" data-aos="flip-left" data-aos-anchor="#trigger-stat1"  data-aos-anchor-placement="top-top">
+            <img class="hh-graphic" src="https://storage.needpix.com/rsynced_images/station-1848972_1280.jpg" alt="" />
             <div>
-                <h3 class="hh-hd">Lorem ipsum ONE</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h3 class="hh-hd">Millions of Americans are struggling to afford a place to live. In order to afford a modest, two-bedroom apartment in the U.S., renters need to earn a wage of $20.30 per hour. In six states and the District of Columbia, they need to earn more than $25 per hour.</h3>
+                <p></p>
             </div>
         </section>
-        <section class="card">
-            <img class="hh-graphic" src="https://isaacintelligence.com/wp-content/uploads/2016/02/Group-of-people-talking-around-table.jpg" alt="" />
+        <section class="card" data-aos="flip-left" data-aos-anchor="#trigger-stat2"  data-aos-anchor-placement="top-top">
+            <img class="hh-graphic" src="https://live.staticflickr.com/1707/26436041935_c134a2ee94_b.jpg" alt="" />
             <div>
-                <h3 class="hh-hd">Lorem ipsum TWO</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h3 class="hh-hd">More than 11 million Americans now pay more than half their salaries for their monthly income for rent. This rate has increased more than 30% over the last five years, which is also a record high.</h3>
             </div>
         </section>
-        <section class="card">
-            <img class="hh-graphic" src="https://storage.needpix.com/rsynced_images/statistics-3411311_1280.jpg" alt="" />
+        <section class="card" id="trigger-stat3" data-aos="flip-left" data-aos-anchor="#trigger-stat3"  data-aos-anchor-placement="top-center">
+            <img class="hh-graphic" src="https://obamawhitehouse.archives.gov/sites/default/files/image/image_file/040214_potus_michigan.jpg" alt="" />
             <div>
-                <h3 class="hh-hd">Lorem ipsum THREE</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h3 class="hh-hd">US minimum wage is $7.25/hour. A renter would need to work 90 hours per week to afford a one-bedroom rental home at the Fair Market Rent and 112 hours per week to afford a two-bedroom.</h3>
             </div>
         </section>
     </main>
+    <footer>
 
+        <ul>
+            <li>Designed by Team 7</li>
+            <li>San Jose State University</li>
+        </ul>
 
-<footer >
-
-
-
-</footer>
-
-
-
-
+    </footer>
 
 
 
@@ -173,10 +171,17 @@
 
 
 
-<!--AnimateOnScrollScript-->
+
+
+
+
+    <!--AnimateOnScrollScript-->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init();
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-in-out-back'
+        });
     </script>
 </body>
 </html>

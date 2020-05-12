@@ -15,6 +15,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
+    <!---VALIDATORS-->
+    <script src="jquery.payform.min.js" charset="utf-8"></script>
+    <script src="script.js"></script>
+
+
     <title>Honest House</title>
 </head>
 <body>
@@ -44,45 +49,45 @@
 
     <div class="container">
         <div class="heading">
-            <h1>Confirm Purchase</h1>
+            <h1>Thank you for your support!</h1>
         </div>
         <div class="payment">
-            <form class="donate">
+            <form class="donate" name="donate" autocomplete="off" onsubmit="">
                 <div class="form-group owner">
                     <label for="owner">Owner</label>
-                    <input type="text" class="form-control" id="owner" required>
+                    <input type="text" class="form-control" id="owner"name="owner" required>
                 </div>
                 <div class="form-group CVV">
                     <label for="cvv">CVV</label>
-                    <input type="text" class="form-control" id="cvv" required>
+                    <input type="number" id="owner"class="form-control" name="cvv" required>
                 </div>
                 <div class="form-group" id="card-number-field">
                     <label for="cardNumber">Card Number</label>
-                    <input type="text" class="form-control" id="cardNumber"required>
+                    <input type="number"  id="card-number-field"class="form-control" name="card-number" required>
                 </div>
-                <div class="form-group" id="expiration-date" required>
+                <div class="form-group" id="expiration-month" required>
                     <label>Expiration Date</label>
-                    <select>
-                        <option value="01">January</option>
-                        <option value="02">February </option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+                    <select name="expiration-month">
+                        <option value="January">January</option>
+                        <option value="February">February </option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
                     </select>
-                    <select>
-                        <option value="20"> 2016</option>
-                        <option value="21"> 2017</option>
-                        <option value="22"> 2018</option>
-                        <option value="23"> 2019</option>
-                        <option value="24"> 2020</option>
-                        <option value="25"> 2021</option>
+                    <select name="expiration-year">
+                        <option value="2020"> 2020</option>
+                        <option value="2021"> 2021</option>
+                        <option value="2022"> 2022</option>
+                        <option value="2023"> 2023</option>
+                        <option value="2024"> 2024</option>
+                        <option value="2025"> 2025</option>
                     </select>
                 </div>
                 <div class="form-group" id="credit_cards">
@@ -91,12 +96,81 @@
                     <img src="amex.jpg" id="amex">
                 </div>
                 <div class="form-group" id="pay-now">
-                    <input type="submit" value="Submit">
+                    <input type="submit" class="btn btn-default" id="confirm-purchase"></input>
                 </div>
             </form>
         </div>
     </div>
 
+    <script>
+        cardNumber.keyup(function () {
+            amex.removeClass('transparent');
+            visa.removeClass('transparent');
+            mastercard.removeClass('transparent');
+
+            if ($.payform.validateCardNumber(cardNumber.val()) == false) {
+                cardNumberField.removeClass('has-success');
+                cardNumberField.addClass('has-error');
+            } else {
+                cardNumberField.removeClass('has-error');
+                cardNumberField.addClass('has-success');
+            }
+
+            if ($.payform.parseCardType(cardNumber.val()) == 'visa') {
+                mastercard.addClass('transparent');
+                amex.addClass('transparent');
+            } else if ($.payform.parseCardType(cardNumber.val()) == 'amex') {
+                mastercard.addClass('transparent');
+                visa.addClass('transparent');
+            } else if ($.payform.parseCardType(cardNumber.val()) == 'mastercard') {
+                amex.addClass('transparent');
+                visa.addClass('transparent');
+            }
+        });
+
+        confirmButton.click(function (e) {
+            e.preventDefault();
+
+            var isCardValid = $.payform.validateCardNumber(cardNumber.val());
+            var isCvvValid = $.payform.validateCardCVC(CVV.val());
+
+            if (owner.val().length < 5) {
+                alert("Wrong owner name");
+            } else if (!isCardValid) {
+                alert("Wrong card number");
+            } else if (!isCvvValid) {
+                alert("Wrong CVV");
+            } else {
+                // Everything is correct. Add your form submission code here.
+                alert("Everything is correct");
+            }
+        });
+    </script>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbw3tRhpyUIAGK59mGgIUPKjxGqWPqyRSG_8EC8ptutBaUUjH30/exec"
+        const form = document.forms['donate']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => window.alert("THANK YOU FOR YOUR GENEROSITY"))
+                .then(response => window.location.replace('index.html'))
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+        });
+    </script>
+
+
+
+
+    <footer>
+        <ul>
+            <li>Designed by Team 7</li>
+            <li>San Jose State University</li>
+        </ul>
+
+    </footer>
 
 </body>
 </html>

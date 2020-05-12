@@ -1,12 +1,4 @@
-
-
-body{
-
-}
-
 .jumbotron {
-    /* animation: backInDown;
-    animation-duration: 3s; */
     background: #ededed;
 }
 .title-container {
@@ -14,70 +6,51 @@ body{
     text-align:center;
 }
 .about-container {
-    margin: auto;
+    margin-left:50px;
+    margin-right:50px;
     animation: fadeInLeftBig;
     animation-duration: 3s;
-    overflow: auto;
 }
 
 .about-card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /*grid-gap: rem;*/
     margin-bottom: 2rem;
     max-width: 1100px;
 }
-
-
 .hh-container {
-    /*background: #ffff99;*/
     align-content:  center;
     align-items: center;
-    animation: fadeInLeftBig;
-    animation-duration: 3s;
-    /* overflow:auto; */
 }
-
 .card {
-    /*background: #119b2d;*/
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /*grid-gap: rem;*/
     margin-bottom: 1rem;
     align-content: center;
     align-items: center;
-
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.card div {
+    padding: 2rem;
+    height: inherit;
+    background: #ccffcc;
 }
 
-    .card div {
-        padding: 2rem;
-        height: inherit;
-        background: #ccffcc;
+.hh-graphic {
+    height:300px;
+    width: 100%;
+}
+
+@media(max-width: 700px){
+    .card{
+        display:block;
     }
-
-    .hh-graphic {
-        height:300px;
-        width: 100%;
-    }
-
-    .card:nth-child(even) img {
-        order: 2;
-    }
-
-
-
-
-    @media(max-width: 700px){
-        .card{
-            display:block;
-        }
-    }
-
+}
 .pos-f-t {
-    /* animation: heartBeat;
-    animation-duration: 20s; */
+     animation: heartBeat;
+    animation-duration: 20s; 
 }
-
 input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
@@ -142,92 +115,8 @@ input[type=submit] {
 }
 
 footer{
-    height:300px;
+    height:200px;
     /*max-width:1100px;*/
     /*display:block;*/
     background: #ccffcc;
 }
-
-
-/* .creditCardForm {
-    max-width: 700px;
-    background-color: #fff;
-    border: solid;
-    margin: 100px auto;
-    overflow: hidden;
-    padding: 25px;
-    color: #4c4e56;
-}
-.creditCardForm label {
-    width: 100%;
-    margin-bottom: 10px;
-}
-.creditCardForm .heading h1 {
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    color: #4c4e56;
-}
-.creditCardForm .payment {
-    float: left;
-    font-size: 18px;
-    padding: 10px 25px;
-    margin-top: 20px;
-    position: relative;
-}
-.creditCardForm .payment .form-group {
-    float: left;
-    margin-bottom: 15px;
-}
-.creditCardForm .payment .form-control {
-    line-height: 40px;
-    height: auto;
-    padding: 0 16px;
-}
-.creditCardForm .owner {
-    width: 63%;
-    margin-right: 10px;
-}
-.creditCardForm .CVV {
-    width: 35%;
-
-}
-.creditCardForm #card-number-field {
-    width: 100%;
-}
-.creditCardForm #expiration-date {
-    width: 49%;
-}
-.creditCardForm #credit_cards {
-    width: 50%;
-    margin-top: 25px;
-    text-align: right;
-}
-.creditCardForm #pay-now {
-    width: 100%;
-    margin-top: 25px;
-}
-.creditCardForm .payment .btn {
-    width: 100%;
-    margin-top: 3px;
-    font-size: 24px;
-    background-color: #2ec4a5;
-    color: white;
-}
-.creditCardForm .payment select {
-    padding: 10px;
-    margin-right: 15px;
-}
-.transparent {
-    opacity: 0.2;
-}
-@media(max-width: 650px) {
-    .creditCardForm .owner,
-    .creditCardForm .CVV,
-    .creditCardForm #expiration-date,
-    .creditCardForm #credit_cards {
-        width: 100%;
-    }
-    .creditCardForm #credit_cards {
-        text-align: left;
-    }
-} */
