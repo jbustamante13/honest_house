@@ -45,13 +45,13 @@
     </div>
 
     <main class="container">
-        <h1>CONTACT US</h1>
-        <section class="card">
-        </section>
+        <h1 style="text-align:center;">CONTACT US</h1>
+        <!--<section class="card">
+        </section>-->
 
         <div class="container">
-            <form autocomplete="off">
-                <div class="row" name="submit-to-google-sheet">
+            <form name = "form1" style="display:block;"  autocomplete="off"> 
+                <div class="row" >
                     <div class="col-25">
                         <label for="fname">First Name</label>
                     </div>
@@ -79,32 +79,48 @@
                 </div>
                 <div class="row">
                     <div class="col-25">
-                        <label for="subject">Subject</label>
+                        <label for="message">Message</label>
                     </div>
                     <div class="col-75">
                         <textarea id="subject" name="message" placeholder="Leave us a message" style="height:200px"required></textarea>
                     </div>
                 </div>
                 <div class="row">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" onclick="contact.html">
                 </div>
             </form>
         </div>
-
     </main>
 
     <script>
         const scriptURL = "https://script.google.com/macros/s/AKfycbxCRsW9jkAr54-gVxbtD6W-dJslO013em8bAs2pHf5kOb6yT00/exec"
-        const form = document.forms['submit-to-google-sheet']
+        const form = document.forms['form1']
       
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => console.log('Success!', response))
             .catch(error => console.error('Error!', error.message))
+            
         })
       </script>
 
+    <script>
+            $(document).ready(function(){
+                $("submit").click(function(){
+                location.reload(true);
+                });
+            });
+    </script>
+
+<footer>
+
+    <ul>
+        <li>Designed by Team 7</li>
+        <li>San Jose State University</li>
+    </ul>
+
+</footer>
 
 </body>
 </html>

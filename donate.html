@@ -47,42 +47,42 @@
             <h1>Confirm Purchase</h1>
         </div>
         <div class="payment">
-            <form class="donate">
+            <form class="donate" name="donate" autocomplete="off">
                 <div class="form-group owner">
                     <label for="owner">Owner</label>
-                    <input type="text" class="form-control" id="owner" required>
+                    <input type="text" class="form-control" name="owner" required>
                 </div>
                 <div class="form-group CVV">
                     <label for="cvv">CVV</label>
-                    <input type="text" class="form-control" id="cvv" required>
+                    <input type="text" class="form-control" name="cvv" required>
                 </div>
                 <div class="form-group" id="card-number-field">
                     <label for="cardNumber">Card Number</label>
-                    <input type="text" class="form-control" id="cardNumber"required>
+                    <input type="text" class="form-control" name="card-number" required>
                 </div>
-                <div class="form-group" id="expiration-date" required>
+                <div class="form-group" id="expiration-month" required>
                     <label>Expiration Date</label>
-                    <select>
-                        <option value="01">January</option>
-                        <option value="02">February </option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+                    <select name="expiration-month">
+                        <option value="January">January</option>
+                        <option value="February">February </option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
                     </select>
-                    <select>
-                        <option value="20"> 2016</option>
-                        <option value="21"> 2017</option>
-                        <option value="22"> 2018</option>
-                        <option value="23"> 2019</option>
-                        <option value="24"> 2020</option>
-                        <option value="25"> 2021</option>
+                    <select name="expiration-year">
+                        <option value="2020"> 2020</option>
+                        <option value="2021"> 2021</option>
+                        <option value="2022"> 2022</option>
+                        <option value="2023"> 2023</option>
+                        <option value="2024"> 2024</option>
+                        <option value="2025"> 2025</option>
                     </select>
                 </div>
                 <div class="form-group" id="credit_cards">
@@ -97,6 +97,32 @@
         </div>
     </div>
 
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbw3tRhpyUIAGK59mGgIUPKjxGqWPqyRSG_8EC8ptutBaUUjH30/exec"
+        const form = document.forms['donate']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => console.log('Success!', response))
+                .then(response => 'donate.html')
+                .catch(error => console.error('Error!', error.message))
+
+        })
+    </script>
+
+
+
+
+
+    <footer>
+
+        <ul>
+            <li>Designed by Team 7</li>
+            <li>San Jose State University</li>
+        </ul>
+
+    </footer>
 
 </body>
 </html>
